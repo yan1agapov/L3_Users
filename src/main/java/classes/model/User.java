@@ -1,11 +1,19 @@
 package classes.model;
 
 public class User {
+    private int ID = 0;
     private String firstName;
     private String secondName;
     private int age;
 
     public User() {}
+
+    public User(int ID, String firstName, String secondName, int age) {
+        this.ID = ID;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.age = age;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -29,6 +37,14 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     @Override

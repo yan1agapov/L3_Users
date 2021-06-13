@@ -14,20 +14,40 @@
 <body>
 <h2>Users</h2>
 <br>
-<table>
+<table border="1">
     <tr>
         <th>FirstName</th>
         <th>SecondName</th>
         <th>Age</th>
+        <th>Operations</th>
     </tr>
 
     <c:forEach var="user" items="${users}">
+
+        <c:url var="update_button" value="update_user">
+            <c:param name="ID" value="${user.ID}"/>
+            <c:param name="firstName" value="${user.firstName}"/>
+            <c:param name="secondName" value="${user.secondName}"/>
+            <c:param name="age" value="${user.age}"/>
+        </c:url>
+
+        <c:url var="delete_button" value="delete_user">
+            <c:param name="ID" value="${user.ID}"/>
+        </c:url>
+
         <tr>
             <td>${user.firstName}</td>
             <td>${user.secondName}</td>
             <td>${user.age}</td>
+            <td><input type="button" value="UPDATE"
+                       onclick="window.location.href = '${update_button}'"/>
+                <input type="button" value="DELETE"
+                       onclick="window.location.href = '${delete_button}'"/>
+            </td>
         </tr>
     </c:forEach>
 </table>
+<input type="button" value="ADD"
+       onclick="window.location.href='add_new_user'"/>
 </body>
 </html>

@@ -2,7 +2,7 @@ package classes.dao;
 
 import classes.model.User;
 import exceptions.IncorrectEmailException;
-import validators.EmailValidator;
+import validators.UserValidator;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -84,8 +84,17 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     public void saveUser(User user) {
         try {
-            if(!EmailValidator.isEmail(user.getEmail())){
+            if(!UserValidator.isEmail(user.getEmail())){
                 throw new IncorrectEmailException("Incorrect email was entered");
+            }
+            if(!UserValidator.isFirstNameOrSecondName(user.getFirstName())){
+                throw new IncorrectEmailException("Incorrect firstname was entered");
+            }
+            if(!UserValidator.isFirstNameOrSecondName(user.getSecondName())){
+                throw new IncorrectEmailException("Incorrect secondname was entered");
+            }
+            if(!UserValidator.isAge(user.getAge())){
+                throw new IncorrectEmailException("Incorrect age was entered");
             }
             createTableIfNotExist();
             if (user.getID() > 0) {
@@ -97,7 +106,7 @@ public class UsersDAOImpl implements UsersDAO {
                 statement.setInt(3, user.getAge());
                 statement.setString(4, user.getEmail());
                 statement.setInt(5, user.getID());
-                statement.execute();
+                statement.executeUpdate();
             } else {
                 String adding = "insert into " + tableName + " (firstName, lastName, age, email)\n" +
                         "VALUES (?,?,?,?)";
@@ -106,7 +115,7 @@ public class UsersDAOImpl implements UsersDAO {
                 statement.setString(2, user.getSecondName());
                 statement.setInt(3, user.getAge());
                 statement.setString(4, user.getEmail());
-                statement.execute();
+                statement.executeUpdate();
             }
         } catch (IncorrectEmailException | SQLException e) {
             e.printStackTrace();

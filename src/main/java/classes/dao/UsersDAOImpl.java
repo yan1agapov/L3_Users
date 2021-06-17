@@ -45,7 +45,6 @@ public class UsersDAOImpl implements UsersDAO {
 
     private void createTableIfNotExist(){
         PreparedStatement statement = null;
-
         try {
             String creation = "CREATE TABLE IF NOT EXISTS " + tableName +"(\n" +
                     "    id serial primary key ,\n" +

@@ -21,9 +21,9 @@
 
     <form:hidden path="ID"/>
 
-    firstName <form:input path="firstName" type="text" pattern="([A-Z][a-z]+\s?)+" maxlength="30" required="required"/>
+    firstName <form:input path="firstName" type="text" pattern="([A-Z][a-z]*\s?)*[A-Z][a-z]*" maxlength="30" required="required"/>
     <br><br>
-    secondName <form:input path="secondName" type="text" pattern="([A-Z][a-z]+\s?)+" maxlength="30" required="required"/>
+    secondName <form:input path="secondName" type="text" pattern="([A-Z][a-z]*\s?)*[A-Z][a-z]*" maxlength="30" required="required"/>
     <br><br>
     age <form:input path="age" type="number" required="required" min="1" max="150"/>
     <br><br>

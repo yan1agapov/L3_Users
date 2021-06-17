@@ -19,6 +19,7 @@
         <th>FirstName</th>
         <th>SecondName</th>
         <th>Age</th>
+        <th>Email</th>
         <th>Operations</th>
     </tr>
 
@@ -29,6 +30,7 @@
             <c:param name="firstName" value="${user.firstName}"/>
             <c:param name="secondName" value="${user.secondName}"/>
             <c:param name="age" value="${user.age}"/>
+            <c:param name="email" value="${user.email}"/>
         </c:url>
 
         <c:url var="delete_button" value="/delete_user">
@@ -39,6 +41,7 @@
             <td>${user.firstName}</td>
             <td>${user.secondName}</td>
             <td>${user.age}</td>
+            <td>${user.email}</td>
             <td><input type="button" value="UPDATE"
                        onclick="window.location.href = '${update_button}'"/>
                 <input type="button" value="DELETE"

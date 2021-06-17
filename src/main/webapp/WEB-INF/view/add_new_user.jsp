@@ -27,6 +27,8 @@
     <br><br>
     age <form:input path="age" type="number" required="required" min="1" max="150"/>
     <br><br>
+    email <form:input path="email" type="text" required="required"/>
+    <br><br>
     <input type="submit" value="SAVE">
 </form:form>
 

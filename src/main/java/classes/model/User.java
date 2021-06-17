@@ -5,14 +5,16 @@ public class User {
     private String firstName;
     private String secondName;
     private int age;
+    private String email;
 
     public User() {}
 
-    public User(int ID, String firstName, String secondName, int age) {
+    public User(int ID, String firstName, String secondName, int age, String email) {
         this.ID = ID;
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
+        this.email = email;
     }
 
     public String getFirstName() {
@@ -47,12 +49,22 @@ public class User {
         this.ID = ID;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "ID=" + ID +
+                ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", age=" + age +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

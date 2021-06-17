@@ -5,9 +5,7 @@ import classes.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 
@@ -39,8 +37,8 @@ public class MainController {
     @RequestMapping("/update_user")
     public String updateUser(@RequestParam("ID") int id, @RequestParam("firstName") String firstName,
                              @RequestParam("secondName") String secondName, @RequestParam("age") int age,
-                             Model model){
-        User user = new User(id, firstName, secondName, age);
+                             @RequestParam("email") String email, Model model){
+        User user = new User(id, firstName, secondName, age, email);
         model.addAttribute("user", user);
         return "add_new_user";
     }
